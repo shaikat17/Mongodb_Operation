@@ -1,0 +1,22 @@
+1. db.test.find({gender: {$eq: "Male"}})          => Will get all documents whose documents gender are equal to "Male"
+2. db.test.find({age: {$gte: 18}}).sort({age: 1})          => will get all documents where age are equel or greater than 18 and sort will sort all the documents in accending order according to the age 
+3. db.test.find({age: {$gte: 18}}).sort({age: -1})          => will get all documents where age are equel or greater than 18 and sort will sort all the documents in descending order according to the age 
+4. db.test.find({ age : { $gte: 18, $lte: 30 }}).project({age: 1}).sort({ age: 1 })
+5. db.test.find({gender: "Female", age : { $gte: 18, $lte: 30 }}).project({age: 1}).sort({ age: 1 })
+6. db.test.find({age: {$in: [18, 20, 40]}}).sort({ age: 1 })
+7. db.test.find({ $and : [
+    {age: { $ne: 15 }},
+    { age: { $lte: 30 }}
+    ]})
+    .project({ age: 1}).sort({ age:1 })        => Explicit and operator
+8. db.test.find({ $or : [
+    {interests: "Cooking"},
+    {interests: "Gaming"}
+    ]})
+    .project({ interests: 1}).sort({ age:1 })      => Explicit or operator
+9. db.test.find({ age: { $exists: true} })
+10. db.test.find({ age: { $type: "string"} })
+11. db.test.find({ friends: { $size: 4} }).project({friends: 1})
+12. db.test.find({ interests: { $all : [ "Gaming", "Writing", "Reading" ]} }).project({interests: 1})    => Array position doesn't matter
+13. db.test.find({ interests: [ "Gaming", "Writing", "Reading" ]}).project({interests: 1})        => Array position matters
+14. db.test.find({ skills: { $elemMatch: {name: "JAVASCRIPT", level: "Intermidiate"}}}).project({skills: 1})
