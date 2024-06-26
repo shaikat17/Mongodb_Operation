@@ -1,0 +1,25 @@
+1. db.test.updateOne(
+    {_id: ObjectId("6406ad65fc13ae5a400000c7"},
+    { $set: { age: 85 } 
+    }}
+    )
+2. db.test.updateOne(
+    {_id: ObjectId("6406ad65fc13ae5a400000c7"},
+    { $addToSet: {
+        interests: "Traveling"
+        }
+    }}
+    )            => Update - add value to array    N.B: won't add duplicate value
+3. db.test.updateOne(
+    {_id: ObjectId("6406ad65fc13ae5a400000c7"},
+    { $addToSet: {
+        interests: { $each: ["Gardening", "Fishing"]
+        }
+    }}
+    )            => Update - add multiple value to array    N.B: won't add duplicate value
+4. db.test.updateOne(
+    {_id: ObjectId("6406ad65fc13ae5a400000c7"},
+    { $push: {
+        interests: "Traveling:
+    }}
+    )          => => Update - add value to array    N.B: add duplicate value
