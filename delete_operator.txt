@@ -1,0 +1,2 @@
+1. db.test.deleteOne({_id: ObjectId("6406ad65fc13ae5a400000c7")})      => delete a specific document
+2. db.test.drop( { writeConcern: { w: 1 } } )      => will delete the collection
