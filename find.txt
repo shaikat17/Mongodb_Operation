@@ -1,0 +1,5 @@
+* db.test.find()          => Will get the all documents
+* db.test.findOne({gender: "Female"})          => Will get one documents based on condition
+* db.test.find({gender: "Female"})          => Will get all documents based on condition
+* db.test.find({gender: "Female"}, {gender: 1, name: 1, email: 1, phone: 1})          => Will get all documents based on condition and only show the mentioned field
+* db.test.find({gender: "Female"}).project({gender: 1, name: 1, email: 1, phone: 1})            => Will get all documents based on condition and only show the mentioned field    N.B: project won't work with findOne()
