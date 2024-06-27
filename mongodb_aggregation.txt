@@ -40,3 +40,16 @@
     { $unwind: "$interests"},
     { $group: { _id: "$age", interestPerAge: {$push: "$interests" }, count: { $sum: 1}}}
     ])
+12. db.test.aggregate([
+    { $bucket: {
+          groupBy: "$age",
+          boundaries: [ 20, 40, 60 ],
+          default: "More than 60",
+          output: {
+            "count": { $sum: 1 },
+            names: { $push: "$name" }
+          }
+        } },
+        { $sort: {count: 1} }
+    ])
+13. 
